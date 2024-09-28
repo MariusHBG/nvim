@@ -6,4 +6,4 @@ end)
 -- Disabled in favor of harpoon keymap
 -- vim.keymap.set('n', '<C-s>', vim.cmd.write)
 
-vim.keymap.set('n', '<leader>w', vim.cmd.Ex)
+vim.keymap.set('n', '<leader>e', vim.cmd.Ex)
