@@ -1,4 +1,3 @@
-print 'echo from custom/plugins/harpoon.lua'
 local mark = require 'harpoon.mark'
 local ui = require 'harpoon.ui'
 

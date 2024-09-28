@@ -640,7 +640,6 @@ require('lazy').setup({
           cmd = { string.format('%s/Tools/zls/zls.exe', vim.env.HOME) },
         },
       }
-      print(string.format('%s/Tools/zls', vim.env.HOME))
 
       -- Ensure the servers and tools above are installed
       --  To check the current status of installed tools and/or manually install
