@@ -9,3 +9,6 @@ vim.keymap.set('n', '<leader>e', vim.cmd.Ex)
 -- vim.keymap.set('n', '<C-s>', vim.cmd.write)
 
 -- TODO: jump between current and previous file
+-- Make CTRL-t fuzzy find
+-- Change harpoon key maps for that
+-- Fix block visual selection
