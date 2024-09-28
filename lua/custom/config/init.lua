@@ -4,3 +4,5 @@ vim.keymap.set('n', '<leader>md', function()
 end)
 
 vim.keymap.set('n', '<C-s>', vim.cmd.write)
+
+vim.keymap.set('n', '<leader>w', vim.cmd.Ex)
