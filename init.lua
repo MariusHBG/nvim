@@ -634,7 +634,12 @@ require('lazy').setup({
             },
           },
         },
+
+        zls = {
+          cmd = { string.format('%s/Tools/zls/zls.exe', vim.env.HOME) },
+        },
       }
+      print(string.format('%s/Tools/zls', vim.env.HOME))
 
       -- Ensure the servers and tools above are installed
       --  To check the current status of installed tools and/or manually install
@@ -701,6 +706,7 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
+        zig = { 'zig fmt' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
@@ -879,6 +885,8 @@ require('lazy').setup({
       statusline.section_location = function()
         return '%2l:%-2v'
       end
+
+      require('mini.pairs').setup()
 
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
