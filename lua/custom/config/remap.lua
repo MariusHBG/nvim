@@ -54,4 +54,4 @@ vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')
 
 -- Avoids that default paste register gets overwritten with replaced content when pasting
-vim.keymap.set('x', '<leader>p', '"_dP')
+vim.keymap.set('x', '<leader>p', '"_dP', { desc = 'Paste but yank into void register' })
