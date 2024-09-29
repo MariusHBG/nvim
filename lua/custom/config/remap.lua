@@ -12,7 +12,6 @@ vim.keymap.set('n', '<leader>e', vim.cmd.Ex)
 -- Make CTRL-t fuzzy find
 -- Change harpoon key maps for that
 -- Fix block visual selection
--- CTRL-back for deleting word in insert mode
 
 -- To quickly correct spelling errors directly in insert mode
 -- Unfortunately, remapping CTRL-BS does not work
