@@ -1,2 +1,2 @@
-require 'custom/config/remap'
 require 'custom/config/set'
+require 'custom/config/remap'
