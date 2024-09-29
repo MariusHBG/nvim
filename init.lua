@@ -1,4 +1,4 @@
-require 'custom/config'
+require 'marius'
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
