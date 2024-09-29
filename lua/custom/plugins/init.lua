@@ -5,3 +5,4 @@
 require 'custom/plugins/harpoon'
 require 'custom/plugins/undotree'
 require 'custom/plugins/telescope'
+require 'custom/plugins/lsp'
