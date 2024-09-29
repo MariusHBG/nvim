@@ -14,6 +14,10 @@ vim.keymap.set('n', '<leader>e', vim.cmd.Ex)
 -- Fix block visual selection
 -- CTRL-back for deleting word in insert mode
 
+-- To quickly correct spelling errors directly in insert mode
+-- Unfortunately, remapping CTRL-BS does not work
+vim.keymap.set('i', '<C-b>', '<C-w>')
+
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
