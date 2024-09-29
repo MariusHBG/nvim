@@ -3,4 +3,3 @@
 --
 -- See the kickstart.nvim README for more information
 require 'custom/plugins/undotree'
-require 'custom/plugins/nvim_cmp'
