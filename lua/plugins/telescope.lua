@@ -53,12 +53,12 @@ return {
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
 
-      vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
+      vim.keymap.set('n', '<leader>pf', builtin.find_files, { desc = 'Search [P]roject [f]iles' })
       -- TODO: Maybe change so <leader>gf for "git files"?
-      vim.keymap.set('n', '<C-p>', builtin.git_files, {})
+      vim.keymap.set('n', '<leader>pg', builtin.git_files, { desc = 'Search [P]roject [g]it files' })
       vim.keymap.set('n', '<leader>ps', function()
         builtin.grep_string { search = vim.fn.input 'Grep > ' }
-      end, {})
+      end, { desc = 'Search [P]roject [s]tring' })
 
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
