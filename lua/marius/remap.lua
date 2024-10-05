@@ -4,6 +4,7 @@
 -- Disabled in favor of harpoon keymap
 -- vim.keymap.set('n', '<C-s>', vim.cmd.write)
 
+-- Modified this file to test the rebase in lazygit
 -- TODO: jump between current and previous file
 -- Make CTRL-t fuzzy find
 -- Change harpoon key maps for that
