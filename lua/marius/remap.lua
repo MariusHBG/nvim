@@ -1,4 +1,5 @@
-vim.keymap.set('n', '<leader>e', vim.cmd.Ex)
+-- netrw was disabled in nvim-tree.lua
+-- vim.keymap.set('n', '<leader>e', vim.cmd.Ex)
 
 -- Disabled in favor of harpoon keymap
 -- vim.keymap.set('n', '<C-s>', vim.cmd.write)
