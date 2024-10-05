@@ -158,7 +158,6 @@ require('lazy').setup({
       -- Other themes: 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
       vim.cmd.colorscheme 'tokyonight-night'
       vim.cmd.hi 'Comment gui=none'
-      vim.cmd.hi 'Visual guibg=#FFFFFF'
     end,
   },
 
