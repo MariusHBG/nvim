@@ -172,7 +172,7 @@ return {
         zls = {
           cmd = { string.format('%s/Tools/zls/zls.exe', vim.env.HOME) },
         },
-        omnisharp = {
+        --[[ omnisharp = {
           settings = {
             FormattingOptions = {
               -- Enables support for reading code style, naming convention and analyzer
@@ -211,7 +211,7 @@ return {
               IncludePrereleases = true,
             },
           },
-        },
+        }, ]]
       }
 
       -- Ensure the servers and tools above are installed
