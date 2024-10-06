@@ -5,7 +5,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Draws a vertical bar
-vim.opt.colorcolumn = '80'
+-- vim.opt.colorcolumn = '80'
 
 -- Primeagen's tabstop settings
 -- vim.opt.tabstop = 4
