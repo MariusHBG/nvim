@@ -64,7 +64,7 @@ return {
         { '<leader>s', group = '[S]earch' },
         { '<leader>w', group = '[W]orkspace' },
         { '<leader>p', group = '[P]roject search' },
-        { '<leader>t', group = '[T]oggle' },
+        { '<leader>t', group = '[T]est' },
         { '<leader>l', group = '[L]ist' },
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
       },
