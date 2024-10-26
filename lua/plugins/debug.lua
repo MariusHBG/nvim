@@ -1,11 +1,3 @@
--- debug.lua
---
--- Shows how to use the DAP plugin to debug your code.
---
--- Primarily focused on configuring the debugger for Go, but can
--- be extended to other languages as well. That's why it's called
--- kickstart.nvim and not kitchen-sink.nvim ;)
-
 return {
   -- NOTE: Yes, you can install new plugins here!
   'mfussenegger/nvim-dap',
@@ -28,11 +20,10 @@ return {
     local dap = require 'dap'
     local dapui = require 'dapui'
     return {
-      -- Basic debugging keymaps, feel free to change to your liking!
       { '<F5>', dap.continue, desc = 'Debug: Start/Continue' },
-      { '<F1>', dap.step_into, desc = 'Debug: Step Into' },
-      { '<F2>', dap.step_over, desc = 'Debug: Step Over' },
-      { '<F3>', dap.step_out, desc = 'Debug: Step Out' },
+      { '<F11>', dap.step_into, desc = 'Debug: Step Into' },
+      { '<F10>', dap.step_over, desc = 'Debug: Step Over' },
+      { '<S-F11>', dap.step_out, desc = 'Debug: Step Out' },
       { '<leader>b', dap.toggle_breakpoint, desc = 'Debug: Toggle Breakpoint' },
       {
         '<leader>B',
@@ -43,6 +34,7 @@ return {
       },
       -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
       { '<F7>', dapui.toggle, desc = 'Debug: See last session result.' },
+      -- { '<leader>gb', dap.run_to_cursor },
       unpack(keys),
     }
   end,
@@ -64,6 +56,7 @@ return {
       ensure_installed = {
         -- Update this to ensure that you have the debuggers for the langs you want
         'delve',
+        'codelldb',
       },
     }
 
@@ -89,9 +82,22 @@ return {
       },
     }
 
-    dap.listeners.after.event_initialized['dapui_config'] = dapui.open
-    dap.listeners.before.event_terminated['dapui_config'] = dapui.close
-    dap.listeners.before.event_exited['dapui_config'] = dapui.close
+    dap.listeners.before.attach.dapui_config = function()
+      dapui.open()
+    end
+    dap.listeners.before.launch.dapui_config = function()
+      dapui.open()
+    end
+    -- dap.listeners.before.event_terminated.dapui_config = function()
+    --   dapui.close()
+    -- end
+    -- dap.listeners.before.event_exited.dapui_config = function()
+    --   dapui.close()
+    -- end
+
+    -- dap.listeners.after.event_initialized['dapui_config'] = dapui.open
+    -- dap.listeners.before.event_terminated['dapui_config'] = dapui.close
+    -- dap.listeners.before.event_exited['dapui_config'] = dapui.close
 
     -- Install golang specific config
     require('dap-go').setup {
@@ -101,5 +107,17 @@ return {
         detached = vim.fn.has 'win32' == 0,
       },
     }
+    -- dap.configurations.cpp = {
+    --   {
+    --     name = 'Launch file',
+    --     type = 'codelldb',
+    --     request = 'launch',
+    --     program = function()
+    --       return vim.fn.input('THIS IS A TEST: ', vim.fn.getcwd() .. '/', 'file')
+    --     end,
+    --     cwd = '${workspaceFolder}',
+    --     stopOnEntry = false,
+    --   },
+    -- }
   end,
 }
