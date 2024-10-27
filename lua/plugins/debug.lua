@@ -30,6 +30,7 @@ return {
         function()
           dap.set_breakpoint(nil, nil, vim.fn.input 'Log point message: ')
         end,
+        desc = 'Debug: Insert log point',
       },
       {
         '<leader>B',
@@ -98,7 +99,7 @@ return {
     sign('DapBreakpoint', { text = '●', texthl = 'DapBreakpoint', linehl = '', numhl = '' })
     sign('DapBreakpointCondition', { text = '●', texthl = 'DapBreakpointCondition', linehl = '', numhl = '' })
     sign('DapLogPoint', { text = '◆', texthl = 'DapLogPoint', linehl = 'DapStopped', numhl = '' })
-    sign('DapStopped', { text = '', texthl = 'DapBreakpoint', linehl = 'DapStopped', numhl = 'DapStopped' })
+    sign('DapStopped', { text = '', texthl = 'DapBreakpoint', linehl = 'DapStopped', numhl = 'DapStopped' })
 
     dap.listeners.before.attach.dapui_config = function()
       dapui.open()
