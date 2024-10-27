@@ -26,6 +26,12 @@ return {
       { '<S-F11>', dap.step_out, desc = 'Debug: Step Out' },
       { '<leader>b', dap.toggle_breakpoint, desc = 'Debug: Toggle Breakpoint' },
       {
+        '<leader>lp',
+        function()
+          dap.set_breakpoint(nil, nil, vim.fn.input 'Log point message: ')
+        end,
+      },
+      {
         '<leader>B',
         function()
           dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
@@ -82,12 +88,25 @@ return {
       },
     }
 
+    vim.api.nvim_set_hl(0, 'DapStopped', { fg = '#ffffff', bg = 'gray' })
+    vim.api.nvim_set_hl(0, 'DapBreakpoint', { fg = 'red' })
+    vim.api.nvim_set_hl(0, 'DapBreakpointCondition', { fg = 'salmon' })
+    vim.api.nvim_set_hl(0, 'DapStopped', { fg = 'white', bg = '#76788c' })
+
+    local sign = vim.fn.sign_define
+
+    sign('DapBreakpoint', { text = '●', texthl = 'DapBreakpoint', linehl = '', numhl = '' })
+    sign('DapBreakpointCondition', { text = '●', texthl = 'DapBreakpointCondition', linehl = '', numhl = '' })
+    sign('DapLogPoint', { text = '◆', texthl = 'DapLogPoint', linehl = 'DapStopped', numhl = '' })
+    sign('DapStopped', { text = '', texthl = 'DapBreakpoint', linehl = 'DapStopped', numhl = 'DapStopped' })
+
     dap.listeners.before.attach.dapui_config = function()
       dapui.open()
     end
     dap.listeners.before.launch.dapui_config = function()
       dapui.open()
     end
+
     -- dap.listeners.before.event_terminated.dapui_config = function()
     --   dapui.close()
     -- end
