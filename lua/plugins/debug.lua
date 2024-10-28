@@ -20,7 +20,18 @@ return {
     local dap = require 'dap'
     local dapui = require 'dapui'
     return {
-      { '<F5>', dap.continue, desc = 'Debug: Start/Continue' },
+      {
+        '<F5>',
+        function()
+          -- (Re-)reads launch.json if present
+          if vim.fn.filereadable '.vscode/launch.json' then
+            require('dap.ext.vscode').load_launchjs(nil, { cpptools = { 'c', 'cpp' } })
+          end
+          require('dap').continue()
+        end,
+        desc = 'Start using launch.json',
+      },
+      -- { '<F5>', dap.continue, desc = 'Debug: Start/Continue' },
       { '<F11>', dap.step_into, desc = 'Debug: Step Into' },
       { '<F10>', dap.step_over, desc = 'Debug: Step Over' },
       { '<S-F11>', dap.step_out, desc = 'Debug: Step Out' },
