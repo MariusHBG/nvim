@@ -28,6 +28,9 @@ return {
       -- [[ Configure Telescope ]]
       -- See `:help telescope` and `:help telescope.setup()`
       local actions = require 'telescope.actions'
+      -- See `:help telescope.builtin`
+      local builtin = require 'telescope.builtin'
+
       require('telescope').setup {
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
@@ -35,7 +38,7 @@ return {
         defaults = {
           mappings = {
             -- i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-            n = { ['.'] = actions.which_key },
+            n = { ['.'] = actions.which_key, ['dd'] = actions.delete_buffer },
           },
         },
         -- pickers = {}
@@ -49,9 +52,6 @@ return {
       -- Enable Telescope extensions if they are installed
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
-
-      -- See `:help telescope.builtin`
-      local builtin = require 'telescope.builtin'
 
       -- TODO: Maybe change so <leader>gf for "git files"?
       vim.keymap.set('n', '<leader>sg', builtin.git_files, { desc = '[S]earch [G]it files' })
