@@ -32,9 +32,9 @@ return {
       --harpoon.ui:toggle_quick_menu(harpoon:list())
       --end)
 
-      vim.keymap.set('n', '<C-h>', function()
+      vim.keymap.set('n', '<leader>hl', function()
         toggle_telescope(harpoon:list())
-      end, { desc = 'Open harpoon window' })
+      end, { desc = '[H]arpoon list buffers' })
       vim.keymap.set('n', '<leader>a', function()
         harpoon:list():add()
       end)
@@ -44,12 +44,15 @@ return {
       vim.keymap.set('n', '<C-e>', function()
         harpoon:list():select(2)
       end)
-      vim.keymap.set('n', '<C-t>', function()
+      vim.keymap.set('n', '<C-h>', function()
         harpoon:list():select(3)
       end)
-      vim.keymap.set('n', '<C-s>', function()
+      vim.keymap.set('n', '<C-,>', function()
         harpoon:list():select(4)
       end)
+      vim.keymap.set('n', '<leader>hc', function()
+        harpoon:list():clear()
+      end, { desc = '[H]arpoon [C]lear buffer list' })
     end,
   },
 }
