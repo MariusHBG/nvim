@@ -11,5 +11,8 @@ return {
       vim.cmd.colorscheme 'tokyonight-night'
       vim.cmd.hi 'Comment gui=none'
     end,
+    config = function()
+      require('tokyonight').setup { transparent = true }
+    end,
   },
 }
