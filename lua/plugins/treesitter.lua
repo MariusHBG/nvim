@@ -3,7 +3,6 @@ return { -- Highlight, edit, and navigate code
   build = ':TSUpdate',
   main = 'nvim-treesitter.configs', -- Sets main module to use for opts
   config = function()
-    require('nvim-treesitter.install').compilers = { 'clang' }
 
     require('nvim-treesitter.configs').setup {
 
