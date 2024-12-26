@@ -55,3 +55,19 @@ vim.keymap.set('n', 'N', 'Nzzzv')
 
 -- Avoids that default paste register gets overwritten with replaced content when pasting
 vim.keymap.set('x', '<leader>p', '"_dP', { desc = 'Paste but yank into void register' })
+
+-- Toggle lsp highlight
+vim.keymap.set('n', '<leader>di', '<cmd>lua require("marius/remap").LspSwap()<CR>', { noremap = true, desc = 'Toggle diagnostics' })
+
+local M = {}
+
+function M.LspSwap()
+  print 'In LSP Swap'
+  if vim.diagnostic.is_enabled() then
+    vim.diagnostic.enable(false)
+  else
+    vim.diagnostic.enable(true)
+  end
+end
+
+return M
