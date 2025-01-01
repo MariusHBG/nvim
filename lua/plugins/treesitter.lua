@@ -3,7 +3,10 @@ return { -- Highlight, edit, and navigate code
   build = ':TSUpdate',
   main = 'nvim-treesitter.configs', -- Sets main module to use for opts
   config = function()
-    require('nvim-treesitter.install').compilers = { 'clang' }
+    if not vim.fn.has 'linux' then
+      -- Choose clang for windows as gcc did not work, and default for linux.
+      require('nvim-treesitter.install').compilers = { 'clang' }
+    end
 
     require('nvim-treesitter.configs').setup {
 
