@@ -13,7 +13,7 @@ return { -- Highlight, edit, and navigate code
 
     require('nvim-treesitter.configs').setup {
 
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'c_sharp' },
+      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'c_sharp', 'rust' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
