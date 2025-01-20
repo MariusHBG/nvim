@@ -79,6 +79,7 @@ return {
         -- Unfortunately <C-Space> does not work on Windows terminals
         -- ['<C-Space>'] = cmp.mapping.complete {},
         ['<C-f>'] = cmp.mapping.complete {},
+        ['<C-c>'] = cmp.mapping.close(),
 
         -- Think of <c-l> as moving to the right of your snippet expansion.
         --  So if you have a snippet that's like:
