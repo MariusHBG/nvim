@@ -53,5 +53,14 @@ return {
     vim.keymap.set('n', '<leader>tst', function()
       neotest.summary.close()
     end, { desc = 'Toggle summary' })
+
+    vim.keymap.set('n', '<leader>tww', function()
+      neotest.watch.watch(vim.fn.expand '%')
+    end, { desc = 'Watch file' })
+
+    vim.keymap.set('n', '<leader>tws', function()
+      ---@diagnostic disable-next-line: missing-parameter
+      neotest.watch.stop()
+    end, { desc = 'Watch file' })
   end,
 }
