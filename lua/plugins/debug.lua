@@ -35,7 +35,7 @@ return {
       { '<F11>', dap.step_into, desc = 'Debug: Step Into' },
       { '<F10>', dap.step_over, desc = 'Debug: Step Over' },
       { '<S-F11>', dap.step_out, desc = 'Debug: Step Out' },
-      { '<leader>b', dap.toggle_breakpoint, desc = 'Debug: Toggle Breakpoint' },
+      { '<leader>db', dap.toggle_breakpoint, desc = 'Debug: Toggle Breakpoint' },
       {
         '<leader>lp',
         function()
@@ -44,7 +44,7 @@ return {
         desc = 'Debug: Insert log point',
       },
       {
-        '<leader>B',
+        '<leader>dB',
         function()
           dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
         end,
