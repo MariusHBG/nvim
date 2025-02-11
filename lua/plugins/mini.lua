@@ -35,6 +35,25 @@ return { -- Collection of various small independent plugins/modules
 
     require('mini.bufremove').setup()
 
+    local bufremove = require 'mini.bufremove'
+    local function delete_all_other_bufs()
+      local current_buf = vim.api.nvim_get_current_buf()
+      local bufs = vim.api.nvim_list_bufs()
+      local current_buf_name = vim.api.nvim_buf_get_name(0)
+      for i = 1, #bufs do
+        local buf = bufs[i]
+        local is_current_buffer = buf == current_buf
+        local is_file_tree_buffer = current_buf_name:match 'NvimTree_1' == 'NvimTree_1'
+        local is_buf_listed = vim.bo[buf].buflisted
+        if not is_current_buffer and not is_file_tree_buffer and is_buf_listed then
+          bufremove.delete(buf, true)
+        end
+      end
+    end
+
+    vim.keymap.set('n', '<leader>bd', bufremove.delete)
+    vim.keymap.set('n', '<leader>bo', delete_all_other_bufs)
+
     -- ... and there is more!
     --  Check out: https://github.com/echasnovski/mini.nvim
   end,
