@@ -34,6 +34,7 @@ return { -- Autoformat
       lua = { 'stylua' },
       zig = { 'zig fmt' },
       cpp = { 'clang-format' },
+      toml = { 'taplo' },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
       --
