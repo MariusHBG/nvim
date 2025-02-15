@@ -22,6 +22,14 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 vim.keymap.set('n', '<leader>wq', vim.diagnostic.setqflist, { desc = 'Open [W]orkspace diagnostic [Q]uickfix list' })
 
+vim.diagnostic.config { virtual_text = true }
+local is_virtual_lines_enabled = false
+vim.keymap.set('n', '<leader>dv', function()
+  print(vim.diagnostic.config)
+  is_virtual_lines_enabled = not is_virtual_lines_enabled
+  vim.diagnostic.config { virtual_lines = is_virtual_lines_enabled, virtual_text = not is_virtual_lines_enabled }
+end, { desc = '[D]iagnostic toggle [V]irtual lines' })
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
@@ -58,7 +66,7 @@ vim.keymap.set('n', 'N', 'Nzzzv')
 vim.keymap.set('x', '<leader>p', '"_dP', { desc = 'Paste but yank into void register' })
 
 -- Toggle lsp highlight
-vim.keymap.set('n', '<leader>di', '<cmd>lua require("marius/remap").LspSwap()<CR>', { noremap = true, desc = 'Toggle diagnostics' })
+vim.keymap.set('n', '<leader>dt', '<cmd>lua require("marius/remap").LspSwap()<CR>', { noremap = true, desc = 'Toggle diagnostics' })
 
 local M = {}
 
