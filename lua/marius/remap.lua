@@ -19,8 +19,9 @@ vim.keymap.set('i', '<C-b>', '<C-w>')
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
-vim.keymap.set('n', '<leader>wq', vim.diagnostic.setqflist, { desc = 'Open [W]orkspace diagnostic [Q]uickfix list' })
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic location list' })
+vim.keymap.set('n', '<leader>Q', vim.diagnostic.setqflist, { desc = 'Open workspace diagnostic [Q]uickfix list' })
+vim.keymap.set('n', '<leader>cq', '<cmd>lclose|cclose<return>', { desc = '[C]lose diagnostic quickfix and location list' })
 
 vim.diagnostic.config { virtual_text = true }
 local is_virtual_lines_enabled = false
