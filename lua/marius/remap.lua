@@ -11,6 +11,12 @@ local function set_move_bufs_keymaps()
   end
 end
 
+local function set_line_moves_keymaps()
+  vim.keymap.set('n', 'gh', '0', { noremap = true })
+  vim.keymap.set('n', 'gs', '^', { noremap = true })
+  vim.keymap.set('n', 'gl', '$', { noremap = true })
+end
+
 -- netrw was disabled in nvim-tree.lua
 -- vim.keymap.set('n', '<leader>e', vim.cmd.Ex)
 
@@ -83,6 +89,7 @@ vim.keymap.set('x', '<leader>p', '"_dP', { desc = 'Paste but yank into void regi
 vim.keymap.set('n', '<leader>dt', '<cmd>lua require("marius/remap").LspSwap()<CR>', { noremap = true, desc = 'Toggle diagnostics' })
 
 set_move_bufs_keymaps()
+set_line_moves_keymaps()
 
 local M = {}
 
