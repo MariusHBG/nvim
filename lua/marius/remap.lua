@@ -1,3 +1,16 @@
+local function set_move_bufs_keymaps()
+  -- Buffer movements
+  -- Next/Previous
+  vim.keymap.set('n', 'gn', ':bnext<CR>', { noremap = true, silent = true })
+  vim.keymap.set('n', 'gp', ':bprev<CR>', { noremap = true, silent = true })
+  -- Go to buffer by number
+  for i = 1, 9 do
+    -- Buffers start at 2 (probably because of nvim_tree)
+    local buf_num = i + 1
+    vim.keymap.set('n', 'g' .. i, ':buffer ' .. buf_num .. '<CR>', { noremap = true, silent = true })
+  end
+end
+
 -- netrw was disabled in nvim-tree.lua
 -- vim.keymap.set('n', '<leader>e', vim.cmd.Ex)
 
@@ -68,6 +81,8 @@ vim.keymap.set('x', '<leader>p', '"_dP', { desc = 'Paste but yank into void regi
 
 -- Toggle lsp highlight
 vim.keymap.set('n', '<leader>dt', '<cmd>lua require("marius/remap").LspSwap()<CR>', { noremap = true, desc = 'Toggle diagnostics' })
+
+set_move_bufs_keymaps()
 
 local M = {}
 
