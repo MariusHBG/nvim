@@ -69,7 +69,12 @@ return {
 
           -- Fuzzy find all the symbols in your current workspace.
           --  Similar to document symbols, except searches over your entire project.
-          map('<leader>sS', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[S]earch workspace [S]ymbols')
+
+          -- Since nvim 0.11, telescope dynamic_workspace_symbols has an issue https://github.com/nvim-telescope/telescope.nvim/issues/3438
+          -- Use lsp_workspace_symbols instead as a workaround
+          -- TODO: Revert back to dynamic symbols as soon as telescope has fixed the issue
+          -- map('<leader>sS', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[S]earch workspace [S]ymbols')
+          map('<leader>sS', require('telescope.builtin').lsp_workspace_symbols, '[S]earch workspace [S]ymbols')
 
           -- Rename the variable under your cursor.
           --  Most Language Servers support renaming across files, etc.
