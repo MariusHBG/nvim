@@ -23,18 +23,6 @@ local function configure_dap_ui()
     },
   }
 
-  vim.api.nvim_set_hl(0, 'DapStopped', { fg = '#ffffff', bg = 'gray' })
-  vim.api.nvim_set_hl(0, 'DapBreakpoint', { fg = 'red' })
-  vim.api.nvim_set_hl(0, 'DapBreakpointCondition', { fg = 'salmon' })
-  vim.api.nvim_set_hl(0, 'DapStopped', { fg = 'white', bg = '#76788c' })
-
-  local sign = vim.fn.sign_define
-
-  sign('DapBreakpoint', { text = '●', texthl = 'DapBreakpoint', linehl = '', numhl = '' })
-  sign('DapBreakpointCondition', { text = '●', texthl = 'DapBreakpointCondition', linehl = '', numhl = '' })
-  sign('DapLogPoint', { text = '◆', texthl = 'DapLogPoint', linehl = 'DapStopped', numhl = '' })
-  sign('DapStopped', { text = '', texthl = 'DapBreakpoint', linehl = 'DapStopped', numhl = 'DapStopped' })
-
   dap.listeners.before.attach.dapui_config = function()
     dapui.open()
   end
@@ -54,6 +42,20 @@ local function configure_dap_ui()
   -- dap.listeners.before.event_exited['dapui_config'] = dapui.close
 
   vim.keymap.set('n', '<F7>', dapui.toggle, { desc = 'Debug: See last session result' })
+end
+
+local function configure_dap_symbols()
+  vim.api.nvim_set_hl(0, 'DapStopped', { fg = '#ffffff', bg = 'gray' })
+  vim.api.nvim_set_hl(0, 'DapBreakpoint', { fg = 'red' })
+  vim.api.nvim_set_hl(0, 'DapBreakpointCondition', { fg = 'salmon' })
+  vim.api.nvim_set_hl(0, 'DapStopped', { fg = 'white', bg = '#76788c' })
+
+  local sign = vim.fn.sign_define
+
+  sign('DapBreakpoint', { text = '●', texthl = 'DapBreakpoint', linehl = '', numhl = '' })
+  sign('DapBreakpointCondition', { text = '●', texthl = 'DapBreakpointCondition', linehl = '', numhl = '' })
+  sign('DapLogPoint', { text = '◆', texthl = 'DapLogPoint', linehl = 'DapStopped', numhl = '' })
+  sign('DapStopped', { text = '', texthl = 'DapBreakpoint', linehl = 'DapStopped', numhl = 'DapStopped' })
 end
 
 return {
@@ -136,6 +138,7 @@ return {
     }
 
     configure_dap_ui()
+    configure_dap_symbols()
 
     -- Install golang specific config
     require('dap-go').setup {
