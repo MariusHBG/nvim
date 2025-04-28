@@ -1,3 +1,61 @@
+local function configure_dap_ui()
+  local dap = require 'dap'
+  local dapui = require 'dapui'
+  -- Dap UI setup
+  -- For more information, see |:help nvim-dap-ui|
+  dapui.setup {
+    -- Set icons to characters that are more likely to work in every terminal.
+    --    Feel free to remove or use ones that you like more! :)
+    --    Don't feel like these are good choices.
+    icons = { expanded = '▾', collapsed = '▸', current_frame = '*' },
+    controls = {
+      icons = {
+        pause = '⏸',
+        play = '▶',
+        step_into = '⏎',
+        step_over = '⏭',
+        step_out = '⏮',
+        step_back = 'b',
+        run_last = '▶▶',
+        terminate = '⏹',
+        disconnect = '⏏',
+      },
+    },
+  }
+
+  vim.api.nvim_set_hl(0, 'DapStopped', { fg = '#ffffff', bg = 'gray' })
+  vim.api.nvim_set_hl(0, 'DapBreakpoint', { fg = 'red' })
+  vim.api.nvim_set_hl(0, 'DapBreakpointCondition', { fg = 'salmon' })
+  vim.api.nvim_set_hl(0, 'DapStopped', { fg = 'white', bg = '#76788c' })
+
+  local sign = vim.fn.sign_define
+
+  sign('DapBreakpoint', { text = '●', texthl = 'DapBreakpoint', linehl = '', numhl = '' })
+  sign('DapBreakpointCondition', { text = '●', texthl = 'DapBreakpointCondition', linehl = '', numhl = '' })
+  sign('DapLogPoint', { text = '◆', texthl = 'DapLogPoint', linehl = 'DapStopped', numhl = '' })
+  sign('DapStopped', { text = '', texthl = 'DapBreakpoint', linehl = 'DapStopped', numhl = 'DapStopped' })
+
+  dap.listeners.before.attach.dapui_config = function()
+    dapui.open()
+  end
+  dap.listeners.before.launch.dapui_config = function()
+    dapui.open()
+  end
+
+  -- dap.listeners.before.event_terminated.dapui_config = function()
+  --   dapui.close()
+  -- end
+  -- dap.listeners.before.event_exited.dapui_config = function()
+  --   dapui.close()
+  -- end
+
+  -- dap.listeners.after.event_initialized['dapui_config'] = dapui.open
+  -- dap.listeners.before.event_terminated['dapui_config'] = dapui.close
+  -- dap.listeners.before.event_exited['dapui_config'] = dapui.close
+
+  vim.keymap.set('n', '<F7>', dapui.toggle, { desc = 'Debug: See last session result' })
+end
+
 return {
   -- NOTE: Yes, you can install new plugins here!
   'mfussenegger/nvim-dap',
@@ -58,7 +116,6 @@ return {
   end,
   config = function()
     local dap = require 'dap'
-    local dapui = require 'dapui'
 
     require('mason-nvim-dap').setup {
       -- Makes a best effort to setup the various debuggers with
@@ -78,57 +135,7 @@ return {
       },
     }
 
-    -- Dap UI setup
-    -- For more information, see |:help nvim-dap-ui|
-    dapui.setup {
-      -- Set icons to characters that are more likely to work in every terminal.
-      --    Feel free to remove or use ones that you like more! :)
-      --    Don't feel like these are good choices.
-      icons = { expanded = '▾', collapsed = '▸', current_frame = '*' },
-      controls = {
-        icons = {
-          pause = '⏸',
-          play = '▶',
-          step_into = '⏎',
-          step_over = '⏭',
-          step_out = '⏮',
-          step_back = 'b',
-          run_last = '▶▶',
-          terminate = '⏹',
-          disconnect = '⏏',
-        },
-      },
-    }
-
-    vim.api.nvim_set_hl(0, 'DapStopped', { fg = '#ffffff', bg = 'gray' })
-    vim.api.nvim_set_hl(0, 'DapBreakpoint', { fg = 'red' })
-    vim.api.nvim_set_hl(0, 'DapBreakpointCondition', { fg = 'salmon' })
-    vim.api.nvim_set_hl(0, 'DapStopped', { fg = 'white', bg = '#76788c' })
-
-    local sign = vim.fn.sign_define
-
-    sign('DapBreakpoint', { text = '●', texthl = 'DapBreakpoint', linehl = '', numhl = '' })
-    sign('DapBreakpointCondition', { text = '●', texthl = 'DapBreakpointCondition', linehl = '', numhl = '' })
-    sign('DapLogPoint', { text = '◆', texthl = 'DapLogPoint', linehl = 'DapStopped', numhl = '' })
-    sign('DapStopped', { text = '', texthl = 'DapBreakpoint', linehl = 'DapStopped', numhl = 'DapStopped' })
-
-    dap.listeners.before.attach.dapui_config = function()
-      dapui.open()
-    end
-    dap.listeners.before.launch.dapui_config = function()
-      dapui.open()
-    end
-
-    -- dap.listeners.before.event_terminated.dapui_config = function()
-    --   dapui.close()
-    -- end
-    -- dap.listeners.before.event_exited.dapui_config = function()
-    --   dapui.close()
-    -- end
-
-    -- dap.listeners.after.event_initialized['dapui_config'] = dapui.open
-    -- dap.listeners.before.event_terminated['dapui_config'] = dapui.close
-    -- dap.listeners.before.event_exited['dapui_config'] = dapui.close
+    configure_dap_ui()
 
     -- Install golang specific config
     require('dap-go').setup {
