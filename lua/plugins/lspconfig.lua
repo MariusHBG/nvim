@@ -177,6 +177,8 @@ return {
         zls = {
           cmd = { string.format('%s/Tools/zls/zls.exe', vim.env.HOME) },
         },
+
+        jsonls = {},
         --[[ omnisharp = {
           settings = {
             FormattingOptions = {
