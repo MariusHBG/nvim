@@ -4,6 +4,8 @@ return {
     config = function()
       local smart_splits = require 'smart-splits'
 
+      smart_splits.setup { at_edge = 'stop' }
+
       -- recommended mappings
       -- resizing splits
       -- these keymaps will also accept a range,
