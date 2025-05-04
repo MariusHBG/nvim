@@ -91,6 +91,9 @@ vim.keymap.set('n', '<leader>dt', '<cmd>lua require("marius/remap").LspSwap()<CR
 set_move_bufs_keymaps()
 set_line_moves_keymaps()
 
+-- Save file
+vim.keymap.set('', '<C-s>', '<cmd>:w<CR>')
+
 local M = {}
 
 function M.LspSwap()
