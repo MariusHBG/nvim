@@ -179,6 +179,7 @@ return {
         },
 
         jsonls = {},
+        html = {},
         --[[ omnisharp = {
           settings = {
             FormattingOptions = {
