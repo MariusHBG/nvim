@@ -36,11 +36,6 @@ return {
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
         callback = function(event)
-          vim.keymap.del('n', 'gri')
-          vim.keymap.del('n', 'grn')
-          vim.keymap.del('n', 'gra')
-          vim.keymap.del('n', 'grr')
-
           local map = function(keys, func, desc, mode)
             mode = mode or 'n'
             vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
@@ -250,6 +245,11 @@ return {
           end,
         },
       }
+
+      vim.keymap.del('n', 'gri')
+      vim.keymap.del('n', 'grn')
+      vim.keymap.del('n', 'gra')
+      vim.keymap.del('n', 'grr')
     end,
   },
 }
