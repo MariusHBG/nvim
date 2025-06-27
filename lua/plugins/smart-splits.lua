@@ -1,6 +1,7 @@
 return {
   {
     'mrjones2014/smart-splits.nvim',
+    lazy = true,
     config = function()
       local smart_splits = require 'smart-splits'
 
