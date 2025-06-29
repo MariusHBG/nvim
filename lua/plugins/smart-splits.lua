@@ -2,50 +2,206 @@ return {
   {
     'mrjones2014/smart-splits.nvim',
     lazy = true,
-    config = function()
-      local smart_splits = require 'smart-splits'
-
-      smart_splits.setup { at_edge = 'stop' }
+    keys = {
 
       -- recommended mappings
       -- resizing splits
       -- these keymaps will also accept a range,
       -- for example `10<A-h>` will `resize_left` by `(10 * config.default_amount)`
-      vim.keymap.set('n', '<A-Left>', require('smart-splits').resize_left)
-      vim.keymap.set('n', '<A-Down>', require('smart-splits').resize_down)
-      vim.keymap.set('n', '<A-Up>', require('smart-splits').resize_up)
-      vim.keymap.set('n', '<A-Right>', require('smart-splits').resize_right)
+      {
+        '<A-Left>',
+        function()
+          require('smart-splits').resize_left()
+        end,
+      },
+      {
+        '<A-Down>',
+        function()
+          require('smart-splits').resize_down()
+        end,
+      },
+      {
+        '<A-Up>',
+        function()
+          require('smart-splits').resize_up()
+        end,
+      },
+      {
+        '<A-Right>',
+        function()
+          require('smart-splits').resize_right()
+        end,
+      },
 
-      vim.keymap.set('n', '<A-h>', require('smart-splits').resize_left)
-      vim.keymap.set('n', '<A-j>', require('smart-splits').resize_down)
-      vim.keymap.set('n', '<A-k>', require('smart-splits').resize_up)
-      vim.keymap.set('n', '<A-l>', require('smart-splits').resize_right)
+      {
+        '<A-h>',
+        function()
+          require('smart-splits').resize_left()
+        end,
+      },
+      {
+        '<A-j>',
+        function()
+          require('smart-splits').resize_down()
+        end,
+      },
+      {
+        '<A-k>',
+        function()
+          require('smart-splits').resize_up()
+        end,
+      },
+      {
+        '<A-l>',
+        function()
+          require('smart-splits').resize_right()
+        end,
+      },
 
       -- moving between splits
-      vim.keymap.set({ 'n', 'i', 'v' }, '<C-h>', require('smart-splits').move_cursor_left)
-      vim.keymap.set({ 'n', 'i', 'v' }, '<C-j>', require('smart-splits').move_cursor_down)
-      vim.keymap.set({ 'n', 'i', 'v' }, '<C-k>', require('smart-splits').move_cursor_up)
-      vim.keymap.set({ 'n', 'i', 'v' }, '<C-l>', require('smart-splits').move_cursor_right)
+      {
+        '<C-h>',
+        mode = { 'n', 'i', 'v' },
+        function()
+          require('smart-splits').move_cursor_left()
+        end,
+      },
+      {
+        '<C-j>',
+        mode = { 'n', 'i', 'v' },
+        function()
+          require('smart-splits').move_cursor_down()
+        end,
+      },
+      {
+        '<C-k>',
+        mode = { 'n', 'i', 'v' },
+        function()
+          require('smart-splits').move_cursor_up()
+        end,
+      },
+      {
+        '<C-l>',
+        mode = { 'n', 'i', 'v' },
+        function()
+          require('smart-splits').move_cursor_right()
+        end,
+      },
 
-      vim.keymap.set({ 'n', 'i', 'v' }, '<C-Left>', require('smart-splits').move_cursor_left)
-      vim.keymap.set({ 'n', 'i', 'v' }, '<C-Down>', require('smart-splits').move_cursor_down)
-      vim.keymap.set({ 'n', 'i', 'v' }, '<C-Up>', require('smart-splits').move_cursor_up)
-      vim.keymap.set({ 'n', 'i', 'v' }, '<C-Right>', require('smart-splits').move_cursor_right)
+      {
+        '<C-Left>',
+        mode = { 'n', 'i', 'v' },
+        function()
+          require('smart-splits').move_cursor_left()
+        end,
+      },
+      {
+        '<C-Down>',
+        mode = { 'n', 'i', 'v' },
+        function()
+          require('smart-splits').move_cursor_down()
+        end,
+      },
+      {
+        '<C-Up>',
+        mode = { 'n', 'i', 'v' },
+        function()
+          require('smart-splits').move_cursor_up()
+        end,
+      },
+      {
+        '<C-Right>',
+        mode = { 'n', 'i', 'v' },
+        function()
+          require('smart-splits').move_cursor_right()
+        end,
+      },
 
-      vim.keymap.set({ 'n', 'i', 'v' }, '<C-\\>', require('smart-splits').move_cursor_previous)
-
-      vim.keymap.set({ 'n', 'i', 'v' }, '<C-w>h', vim.cmd.split, { desc = 'Split window horizontally' })
+      {
+        '<C-\\>',
+        mode = { 'n', 'i', 'v' },
+        function()
+          require('smart-splits').move_cursor_previous()
+        end,
+      },
+      {
+        '<C-w>h',
+        mode = { 'n', 'i', 'v' },
+        function()
+          vim.cmd.split()
+        end,
+        desc = 'Split window horizontally',
+      },
 
       -- swapping buffers between windows
-      vim.keymap.set({ 'n', 'i', 'v' }, '<C-w>s<Left>', smart_splits.swap_buf_left, { desc = 'Move window to the left' })
-      vim.keymap.set({ 'n', 'i', 'v' }, '<C-w>s<Right>', smart_splits.swap_buf_right, { desc = 'Move window to the right' })
-      vim.keymap.set({ 'n', 'i', 'v' }, '<C-w>s<Up>', smart_splits.swap_buf_up, { desc = 'Move window to the top' })
-      vim.keymap.set({ 'n', 'i', 'v' }, '<C-w>s<Down>', smart_splits.swap_buf_down, { desc = 'Move window to the bottom' })
+      {
+        '<C-w>s<Left>',
+        mode = { 'n', 'i', 'v' },
+        function()
+          require('smart-splits').swap_buf_left()
+        end,
+        desc = 'Move window to the left',
+      },
+      {
+        '<C-w>s<Right>',
+        mode = { 'n', 'i', 'v' },
+        function()
+          require('smart-splits').swap_buf_right()
+        end,
+        desc = 'Move window to the right',
+      },
+      {
+        '<C-w>s<Up>',
+        mode = { 'n', 'i', 'v' },
+        function()
+          require('smart-splits').swap_buf_up()
+        end,
+        desc = 'Move window to the top',
+      },
+      {
+        '<C-w>s<Down>',
+        mode = { 'n', 'i', 'v' },
+        function()
+          require('smart-splits').swap_buf_down()
+        end,
+        desc = 'Move window to the bottom',
+      },
 
-      vim.keymap.set({ 'n', 'i', 'v' }, '<C-w>sh', smart_splits.swap_buf_left, { desc = 'Move window to the left' })
-      vim.keymap.set({ 'n', 'i', 'v' }, '<C-w>sl', smart_splits.swap_buf_right, { desc = 'Move window to the right' })
-      vim.keymap.set({ 'n', 'i', 'v' }, '<C-w>sk', smart_splits.swap_buf_up, { desc = 'Move window to the top' })
-      vim.keymap.set({ 'n', 'i', 'v' }, '<C-w>sj', smart_splits.swap_buf_down, { desc = 'Move window to the bottom' })
+      {
+        '<C-w>sh',
+        mode = { 'n', 'i', 'v' },
+        function()
+          require('smart-splits').swap_buf_left()
+        end,
+        desc = 'Move window to the left',
+      },
+      {
+        '<C-w>sl',
+        mode = { 'n', 'i', 'v' },
+        function()
+          require('smart-splits').swap_buf_right()
+        end,
+        desc = 'Move window to the right',
+      },
+      {
+        '<C-w>sk',
+        mode = { 'n', 'i', 'v' },
+        function()
+          require('smart-splits').swap_buf_up()
+        end,
+        desc = 'Move window to the top',
+      },
+      {
+        '<C-w>sj',
+        mode = { 'n', 'i', 'v' },
+        function()
+          require('smart-splits').swap_buf_down()
+        end,
+        desc = 'Move window to the bottom',
+      },
+    },
+    config = function()
+      require('smart-splits').setup { at_edge = 'stop' }
     end,
   },
 }
