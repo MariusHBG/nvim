@@ -35,6 +35,7 @@ return { -- Autoformat
       zig = { 'zig fmt' },
       cpp = { 'clang-format' },
       toml = { 'taplo' },
+      python = { 'black' },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
       --
@@ -48,4 +49,9 @@ return { -- Autoformat
       json = { 'prettierd', 'prettier', stop_after_first = true },
     },
   },
+  -- Helper so that the module that handles the mason tool installer setup
+  -- can install the required formatters for us
+  get_formatters = function()
+    return { 'black', 'stylua' }
+  end,
 }
