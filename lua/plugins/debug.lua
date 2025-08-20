@@ -117,11 +117,11 @@ return {
         desc = 'Debug: Toggle Breakpoint',
       },
       {
-        '<leader>lp',
+        '<leader>dp',
         function()
           require('dap').set_breakpoint(nil, nil, vim.fn.input 'Log point message: ')
         end,
-        desc = 'Debug: Insert log point',
+        desc = 'Debug: Insert log [p]oint',
       },
       {
         '<leader>dB',

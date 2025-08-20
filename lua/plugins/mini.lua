@@ -51,8 +51,8 @@ return { -- Collection of various small independent plugins/modules
       end
     end
 
-    vim.keymap.set('n', '<leader>bd', bufremove.delete)
-    vim.keymap.set('n', '<leader>bo', delete_all_other_bufs)
+    vim.keymap.set('n', '<leader>bd', bufremove.delete, { desc = '[B]uffer [delete]' })
+    vim.keymap.set('n', '<leader>bo', delete_all_other_bufs, { desc = '[B]uffer delete [o]thers' })
 
     -- ... and there is more!
     --  Check out: https://github.com/echasnovski/mini.nvim
