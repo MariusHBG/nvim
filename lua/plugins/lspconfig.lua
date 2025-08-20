@@ -38,6 +38,17 @@ return {
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
         callback = function(event)
+          pcall(function()
+            -- Delete lsp default keymaps as they conflict with my own
+            -- https://neovim.io/doc/user/lsp.html#lsp-defaults
+            vim.keymap.del('n', 'grn', { buffer = event.buf })
+            vim.keymap.del('n', 'gra', { buffer = event.buf })
+            vim.keymap.del('n', 'grr', { buffer = event.buf })
+            vim.keymap.del('n', 'gri', { buffer = event.buf })
+            vim.keymap.del('n', 'grt', { buffer = event.buf })
+            vim.keymap.del('n', 'gO', { buffer = event.buf })
+          end)
+
           local map = function(keys, func, desc, mode)
             mode = mode or 'n'
             vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
