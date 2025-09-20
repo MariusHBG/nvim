@@ -81,6 +81,8 @@ return {
     vim.keymap.set('n', '<leader>sw', function()
       fzf.grep { search = vim.fn.input 'Grep > ' }
     end, { desc = '[S]earch [W]ord' })
+    vim.keymap.set('n', '<leader>sc', fzf.grep_cword, { desc = '[S]earch word under [c]ursor' })
+    vim.keymap.set('n', '<leader>/', fzf.grep_curbuf, { desc = 'Fuzzy search in current buffer' })
     vim.keymap.set('n', '<leader>sp', fzf.files, { desc = '[S]earch [P]roject files' })
     vim.keymap.set('n', '<leader>sk', fzf.keymaps, { desc = '[S]earch [K]eymaps' })
     vim.keymap.set('n', '<leader>st', fzf.builtin, { desc = '[S]earch [S]elect fzf-lua' })
