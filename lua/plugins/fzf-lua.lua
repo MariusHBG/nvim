@@ -95,13 +95,13 @@ return {
     vim.keymap.set('n', '<leader>r', fzf.registers, { desc = 'Search [r]egisters' })
     vim.keymap.set('n', '<leader>sm', fzf.marks, { desc = '[s]earch [m]arks' })
     vim.keymap.set('n', '<leader>sh', fzf.helptags, { desc = '[s]earch [h]elptags' })
-    vim.keymap.set('n', '<leader>gc', fzf.git_bcommits, { desc = '[g]it [c]ommits for buffer' })
+    vim.keymap.set({ 'n', 'v' }, '<leader>gc', fzf.git_bcommits, { desc = '[g]it [c]ommits for buffer' })
     vim.keymap.set('n', '<leader>gC', fzf.git_commits, { desc = '[g]it [c]ommits for project' })
     vim.keymap.set('n', '<leader>gh', fzf.git_hunks, { desc = '[g]it [h]unks' })
     vim.keymap.set('n', '<leader>gs', fzf.git_status, { desc = '[g]it [s]tatus' })
     vim.keymap.set('n', '<leader>gf', fzf.git_files, { desc = '[g]it [f]iles' })
     vim.keymap.set('n', '<leader>gd', fzf.git_diff, { desc = '[g]it [d]iff' })
-    vim.keymap.set('n', '<leader>gb', fzf.git_blame, { desc = '[g]it [b]lame' })
+    vim.keymap.set({ 'n', 'v' }, '<leader>gb', fzf.git_blame, { desc = '[g]it [b]lame' })
 
     vim.keymap.set('n', '<leader>sj', function()
       require('fzf-lua').spell_suggest { winopts = { relative = 'cursor', row = 1.01, col = 0, height = 0.2, width = 0.2 } }
