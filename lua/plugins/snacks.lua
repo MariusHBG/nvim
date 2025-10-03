@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 return {
   {
     'folke/snacks.nvim',
@@ -28,6 +29,14 @@ return {
           Snacks.explorer()
         end,
         desc = 'File Explorer',
+      },
+
+      {
+        '<leader>.',
+        function()
+          Snacks.scratch()
+        end,
+        desc = 'Scratch buffer',
       },
     },
   },
