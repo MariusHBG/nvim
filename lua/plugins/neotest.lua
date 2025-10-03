@@ -9,6 +9,13 @@ return {
   },
   keys = {
     {
+      '<leader>ta',
+      function()
+        require('neotest').run.run { suite = true }
+      end,
+      desc = '[T]est [a]ll',
+    },
+    {
       '<leader>tn',
       function()
         require('neotest').run.run()
