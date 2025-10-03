@@ -95,6 +95,9 @@ return {
     vim.keymap.set('n', '<leader>r', fzf.registers, { desc = 'Search [r]egisters' })
     vim.keymap.set('n', '<leader>sm', fzf.marks, { desc = '[s]earch [m]arks' })
     vim.keymap.set('n', '<leader>sh', fzf.helptags, { desc = '[s]earch [h]elptags' })
+    vim.keymap.set('n', '<leader>sa', fzf.autocmds, { desc = '[S]each [a]utocommands' })
+
+    -- Git pickers
     vim.keymap.set({ 'n', 'v' }, '<leader>gc', fzf.git_bcommits, { desc = '[g]it [c]ommits for buffer' })
     vim.keymap.set('n', '<leader>gC', fzf.git_commits, { desc = '[g]it [c]ommits for project' })
     vim.keymap.set('n', '<leader>gh', fzf.git_hunks, { desc = '[g]it [h]unks' })
