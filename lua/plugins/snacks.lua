@@ -11,7 +11,7 @@ return {
       bigfile = { enabled = false },
       dashboard = { enabled = false },
       explorer = { enabled = true, replace_netrw = true },
-      indent = { enabled = false },
+      indent = { enabled = true },
       input = { enabled = false },
       picker = { enabled = false },
       notifier = { enabled = false },
