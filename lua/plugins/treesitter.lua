@@ -2,6 +2,8 @@ return { -- Highlight, edit, and navigate code
   'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate',
   main = 'nvim-treesitter.configs', -- Sets main module to use for opts
+  event = { 'VeryLazy' },
+  -- LazyVim adds the event "LazyFile". I don't know why but consider if having issues
   dependencies = {
     'nvim-treesitter/nvim-treesitter-textobjects',
   },
