@@ -1,0 +1,86 @@
+  Startuptime: 16.8ms
+
+  Based on the actual CPU time of the Neovim process till UIEnter.
+  This is more accurate than `nvim --startuptime`.
+    LazyStart 3.57ms
+    LazyDone  15.48ms (+11.92ms)
+    UIEnter   16.8ms (+1.32ms)
+
+  Profile
+
+  You can press <C-s> to change sorting between chronological order & time taken.
+  Press <C-f> to filter profiling entries that took more time than a given threshold
+
+    ●  VeryLazy 21.92ms
+      ➜  lualine.nvim 5.91ms
+        ★  trouble.nvim 0.89ms
+      ➜  bufferline.nvim 3.2ms
+      ➜  nvim-treesitter 2.38ms
+        ★  nvim-treesitter/plugin/filetypes.lua 0.41ms
+        ★  nvim-treesitter/plugin/nvim-treesitter.lua 0.05ms
+        ★  nvim-treesitter/plugin/query_predicates.lua 0.03ms
+      ➜  ts-comments.nvim 2.26ms
+      ➜  mini.pairs 1.41ms
+      ➜  noice.nvim 1.23ms
+      ➜  mini.ai 0.83ms
+      ➜  flash.nvim 0.8ms
+      ➜  which-key.nvim 0.69ms
+        ★  which-key.nvim/plugin/which-key.lua 0.05ms
+      ➜  nvim-treesitter-textobjects 0.46ms
+    ●  startuptime 16.8ms
+    ●  CmdlineEnter 13.76ms
+      ➜  blink.cmp 13.69ms
+        ★  blink.cmp/plugin/blink-cmp.lua 5.7ms
+        ★  friendly-snippets 1.05ms
+    ●  lazy.nvim 7.97ms
+      ➜  spec 5.29ms
+        ★  lazyvim.plugins 2.58ms
+        ★  lazyvim.plugins.xtras 0.77ms
+          ‒  lazyvim.plugins.extras.coding.blink 0.18ms
+          ‒  lazyvim.plugins.extras.editor.snacks_picker 0.18ms
+          ‒  lazyvim.plugins.extras.lang.go 0.05ms
+          ‒  lazyvim.plugins.extras.dap.core 0.04ms
+          ‒  lazyvim.plugins.extras.lang.rust 0.04ms
+          ‒  lazyvim.plugins.extras.editor.snacks_explorer 0.02ms
+        ★  resolve plugins 0.23ms
+        ★  lazyvim.plugins.coding 0.2ms
+        ★  lazyvim.plugins.ui 0.12ms
+        ★  lazyvim.plugins.editor 0.07ms
+        ★  lazyvim.plugins.colorscheme 0.06ms
+        ★  lazyvim.plugins.treesitter 0.04ms
+        ★  pkg 0.03ms
+        ★  plugins.example 0.03ms
+        ★  lazyvim.plugins.lsp 0.03ms
+        ★  lazyvim.plugins.formatting 0.03ms
+        ★  lazyvim.plugins.util 0.03ms
+        ★  lazyvim.plugins.linting 0.02ms
+      ➜  handlers 1.65ms
+      ➜  module 0.72ms
+      ➜  config 0.09ms
+      ➜  state 0.08ms
+      ➜  install 0.02ms
+    ●  startup 6.99ms
+      ➜  start 4.45ms
+        ★  start  LazyVim 3.43ms
+          ‒  colorscheme 3.26ms
+            ●  tokyonight.nvim 0.84ms
+        ★  start  snacks.nvim 0.98ms
+          ‒  snacks.nvim/plugin/snacks.lua 0.47ms
+      ➜  rtp plugins 2.29ms
+        ★  runtime/plugin/netrwPlugin.vim 0.67ms
+        ★  runtime/plugin/matchit.vim 0.66ms
+        ★  runtime/plugin/rplugin.vim 0.14ms
+        ★  runtime/plugin/editorconfig.lua 0.12ms
+        ★  runtime/plugin/matchparen.vim 0.12ms
+        ★  runtime/plugin/man.lua 0.12ms
+        ★  runtime/plugin/osc52.lua 0.1ms
+        ★  runtime/plugin/shada.vim 0.09ms
+        ★  runtime/plugin/spellfile.vim 0.09ms
+      ➜  runtime/filetype.lua 0.18ms
+      ➜  init 0.03ms
+        ★  init  lualine.nvim 0.01ms
+        ★  init  conform.nvim 0.01ms
+        ★  init  mini.icons 0ms
+      ➜  after 0.02ms
+    ●  mini.icons 3.81ms
+    ●  nui.nvim 0.08ms
