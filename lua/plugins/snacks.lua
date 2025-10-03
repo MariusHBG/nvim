@@ -4,7 +4,6 @@ return {
     'folke/snacks.nvim',
     priority = 1000,
     lazy = false,
-    ---@type snacks.Config
     opts = {
       -- your configuration comes here
       -- or leave it empty to use the default settings
@@ -22,22 +21,10 @@ return {
       statuscolumn = { enabled = false },
       words = { enabled = false },
     },
+		-- stylua: ignore
     keys = {
-      {
-        '<leader>eo',
-        function()
-          Snacks.explorer()
-        end,
-        desc = 'File Explorer',
-      },
-
-      {
-        '<leader>.',
-        function()
-          Snacks.scratch()
-        end,
-        desc = 'Scratch buffer',
-      },
+      { '<leader>eo', function() Snacks.explorer() end, desc = 'File Explorer', },
+      { '<leader>.', function() Snacks.scratch() end, desc = 'Scratch buffer', },
     },
   },
 }
