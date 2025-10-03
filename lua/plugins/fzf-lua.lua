@@ -78,177 +78,54 @@ return {
     }
   end,
 
+	-- stylua: ignore
   keys = {
+		-- Word
+    { '<leader>sw', function() require('fzf-lua').grep { search = vim.fn.input 'Grep > ' } end, desc = '[S]earch [W]ord', },
+		-- Marks
+    { '<leader>sm', function() require('fzf-lua').marks() end, desc = '[s]earch [m]arks' },
+		-- Helptags
+    { '<leader>sh', function() require('fzf-lua').helptags() end, desc = '[s]earch [h]elptags' },
+		-- Autocommands
+    { '<leader>sa', function() require('fzf-lua').autocmds() end, desc = '[S]each [a]utocommands' },
+		-- Git buffer commits
+    { '<leader>gc', mode = { 'n', 'v' }, function() require('fzf-lua').git_bcommits() end, desc = '[g]it [c]ommits for buffer' },
+		-- Git project commits
+    { '<leader>gC', function() require('fzf-lua').git_commits() end, desc = '[g]it [c]ommits for project' },
+		-- Git hunks
+    { '<leader>gh', function() require('fzf-lua').git_hunks() end, desc = '[g]it [h]unks' },
+		-- Git status
+    { '<leader>gs', function() require('fzf-lua').git_status() end, desc = '[g]it [s]tatus' },
+		-- Git files
+    { '<leader>gf', function() require('fzf-lua').git_files() end, desc = '[g]it [f]iles' },
+		-- Git diff
+    { '<leader>gd', function() require('fzf-lua').git_diff() end, desc = '[g]it [d]iff' },
+		-- Git blame
+    { '<leader>gb', mode = { 'n', 'v' }, function() require('fzf-lua').git_blame() end, desc = '[g]it [b]lame' },
+		-- Spell suggestions
+    { '<leader>sj', function() require('fzf-lua').spell_suggest { winopts = { relative = 'cursor', row = 1.01, col = 0, height = 0.2, width = 0.2 } } end, desc = 'Spell suggestions' },
+		-- Registers
+    { '<leader>s"', function() require('fzf-lua').registers() end, desc = 'Search [r]egisters' },
+		-- Word under cursor
+    { '<leader>sc', function() require('fzf-lua').grep_cword() end, desc = '[S]earch word under [c]ursor' },
+		-- Current buffer
+    { '<leader>/', function() require('fzf-lua').grep_curbuf() end, desc = 'Fuzzy search in current buffer' },
+		-- Project files
+    { '<leader>sp', function() require('fzf-lua').files() end, desc = '[S]earch [P]roject files' },
+		-- Keymaps
+    { '<leader>sk', function() require('fzf-lua').keymaps() end, desc = '[S]earch [K]eymaps' },
+		-- Open picker selection
+    { '<leader>st', function() require('fzf-lua').builtin() end, desc = '[S]earch [S]elect fzf-lua' },
+		-- Live grep
+    { '<leader>sl', function() require('fzf-lua').live_grep() end, desc = '[S]earch by grep' },
+		-- Workspace diagnostics
+    { '<leader>sd', function() require('fzf-lua').diagnostics_workspace() end, desc = '[S]earch [D]iagnostics' },
 
-    {
-      '<leader>sw',
-      function()
-        require('fzf-lua').grep { search = vim.fn.input 'Grep > ' }
-      end,
-      { desc = '[S]earch [W]ord' },
-    },
-
-    {
-      '<leader>sm',
-      function()
-        require('fzf-lua').marks()
-      end,
-      { desc = '[s]earch [m]arks' },
-    },
-
-    {
-      '<leader>sh',
-      function()
-        require('fzf-lua').helptags()
-      end,
-      { desc = '[s]earch [h]elptags' },
-    },
-    {
-      '<leader>sa',
-      function()
-        require('fzf-lua').autocmds()
-      end,
-      { desc = '[S]each [a]utocommands' },
-    },
-    {
-      mode = { 'n', 'v' },
-      '<leader>gc',
-      function()
-        require('fzf-lua').git_bcommits()
-      end,
-      { desc = '[g]it [c]ommits for buffer' },
-    },
-    {
-      '<leader>gC',
-      function()
-        require('fzf-lua').git_commits()
-      end,
-      { desc = '[g]it [c]ommits for project' },
-    },
-    {
-      '<leader>gh',
-      function()
-        require('fzf-lua').git_hunks()
-      end,
-      { desc = '[g]it [h]unks' },
-    },
-
-    {
-      '<leader>gs',
-      function()
-        require('fzf-lua').git_status()
-      end,
-      { desc = '[g]it [s]tatus' },
-    },
-    {
-      '<leader>gf',
-      function()
-        require('fzf-lua').git_files()
-      end,
-      { desc = '[g]it [f]iles' },
-    },
-    {
-      '<leader>gd',
-      function()
-        require('fzf-lua').git_diff()
-      end,
-      { desc = '[g]it [d]iff' },
-    },
-
-    {
-      mode = { 'n', 'v' },
-      '<leader>gb',
-      function()
-        require('fzf-lua').git_blame()
-      end,
-      { desc = '[g]it [b]lame' },
-    },
-    {
-      '<leader>sj',
-      function()
-        require('fzf-lua').spell_suggest { winopts = { relative = 'cursor', row = 1.01, col = 0, height = 0.2, width = 0.2 } }
-      end,
-      { desc = 'Spell suggestions' },
-    },
-    {
-      '<leader>s"',
-      function()
-        require('fzf-lua').registers()
-      end,
-      { desc = 'Search [r]egisters' },
-    },
-
-    {
-      '<leader>sc',
-      function()
-        require('fzf-lua').grep_cword()
-      end,
-      { desc = '[S]earch word under [c]ursor' },
-    },
-    {
-      '<leader>/',
-      function()
-        require('fzf-lua').grep_curbuf()
-      end,
-      { desc = 'Fuzzy search in current buffer' },
-    },
-    {
-      '<leader>sp',
-      function()
-        require('fzf-lua').files()
-      end,
-      { desc = '[S]earch [P]roject files' },
-    },
-
-    {
-      '<leader>sk',
-      function()
-        require('fzf-lua').keymaps()
-      end,
-      { desc = '[S]earch [K]eymaps' },
-    },
-    {
-      '<leader>st',
-      function()
-        require('fzf-lua').builtin()
-      end,
-      { desc = '[S]earch [S]elect fzf-lua' },
-    },
-    {
-      '<leader>sl',
-      function()
-        require('fzf-lua').live_grep()
-      end,
-      { desc = '[S]earch by grep' },
-    },
-    {
-      '<leader>sd',
-      function()
-        require('fzf-lua').diagnostics_workspace()
-      end,
-      { desc = '[S]earch [D]iagnostics' },
-    },
-
-    {
-      '<leader>sr',
-      function()
-        require('fzf-lua').resume()
-      end,
-      { desc = '[S]earch [R]esume' },
-    },
-    {
-      '<leader>s',
-      function()
-        require('fzf-lua').oldfiles()
-      end,
-      { desc = '[S]earch Recent Files ("." for repeat)' },
-    },
-    {
-      '<leader><leader>',
-      function()
-        require('fzf-lua').buffers()
-      end,
-      { desc = '[ ] Find existing buffers' },
-    },
+		-- Resume last search
+    { '<leader>sr', function() require('fzf-lua').resume() end, desc = '[S]earch [R]esume' },
+		-- Recent files
+    { '<leader>s', function() require('fzf-lua').oldfiles() end, desc = '[S]earch Recent Files ("." for repeat)' },
+		-- Open buffers
+    { '<leader><leader>', function() require('fzf-lua').buffers() end, desc = '[ ] Find existing buffers' },
   },
 }
