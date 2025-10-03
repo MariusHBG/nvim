@@ -16,7 +16,7 @@ return {
   {
     -- Main LSP Configuration
     'neovim/nvim-lspconfig',
-    lazy = false,
+    event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for Neovim
       { 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
