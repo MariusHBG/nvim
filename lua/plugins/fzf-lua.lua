@@ -98,8 +98,12 @@ return {
     { '<leader>gs', function() require('fzf-lua').git_status() end, desc = '[g]it [s]tatus' },
 		-- Git files
     { '<leader>gf', function() require('fzf-lua').git_files() end, desc = '[g]it [f]iles' },
-		-- Git diff
-    { '<leader>gd', function() require('fzf-lua').git_diff() end, desc = '[g]it [d]iff' },
+		-- Git diff against remote
+    { '<leader>gdr', function() require('fzf-lua').git_diff() end, desc = '[g]it [d]iff against [r]emote' },
+		-- Git diff against main
+    { '<leader>gdm', function() require('fzf-lua').git_diff({ cmd = "git diff origin/main...HEAD", }) end, desc = '[g]it [d]iff against [m]ain ' },
+		-- Git diff against master
+    { '<leader>gda', function() require('fzf-lua').git_diff({ cmd = "git diff origin/master...HEAD", }) end, desc = '[g]it [d]iff against m[a]ster' },
 		-- Git blame
     { '<leader>gb', mode = { 'n', 'v' }, function() require('fzf-lua').git_blame() end, desc = '[g]it [b]lame' },
 		-- Spell suggestions
