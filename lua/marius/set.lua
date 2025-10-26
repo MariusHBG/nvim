@@ -72,6 +72,9 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+-- Make nvim read in files that were changed externally
+vim.opt.autoread = true
+
 -- Always enable wrap for quickfix windows
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'qf',
