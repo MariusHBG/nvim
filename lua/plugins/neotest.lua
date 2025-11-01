@@ -6,6 +6,7 @@ return {
     'nvim-lua/plenary.nvim',
     'antoinemadec/FixCursorHold.nvim',
     'nvim-treesitter/nvim-treesitter',
+    'marilari88/neotest-vitest',
   },
   keys = {
     {
@@ -108,6 +109,7 @@ return {
       adapters = {
         -- ...,
         require 'rustaceanvim.neotest',
+        require 'neotest-vitest' { vitestCommand = 'pnpm test', vitestConfigFile = 'vitest.unit.config.ts' },
       },
     }
   end,
