@@ -112,6 +112,8 @@ return {
     { '<leader>s"', function() require('fzf-lua').registers() end, desc = 'Search [r]egisters' },
 		-- Word under cursor
     { '<leader>sc', function() require('fzf-lua').grep_cword() end, desc = '[S]earch word under [c]ursor' },
+		-- Visual selection
+    { '<leader>sv', mode = { 'v' }, function() require('fzf-lua').grep_visual() end, desc = '[S]earch [v]isual selection' },
 		-- Current buffer
     { '<leader>/', function() require('fzf-lua').grep_curbuf() end, desc = 'Fuzzy search in current buffer' },
 		-- Project files
