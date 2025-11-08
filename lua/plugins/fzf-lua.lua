@@ -127,8 +127,8 @@ return {
 
 		-- Resume last search
     { '<leader>sr', function() require('fzf-lua').resume() end, desc = '[S]earch [R]esume' },
-		-- Recent files
-    { '<leader>s', function() require('fzf-lua').oldfiles() end, desc = '[S]earch Recent Files ("." for repeat)' },
+		-- Old files
+    { '<leader>so', function() require('fzf-lua').oldfiles() end, desc = '[S]earch Recent Files ("." for repeat)' },
 		-- Open buffers
     { '<leader><leader>', function() require('fzf-lua').buffers() end, desc = '[ ] Find existing buffers' },
   },
