@@ -1,18 +1,21 @@
 return {
-  { -- You can easily change to a different colorscheme.
-    -- Change the name of the colorscheme plugin below, and then
-    -- change the command in the config to whatever the name of that colorscheme is.
-    --
-    -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
+  {
     'folke/tokyonight.nvim',
-    priority = 1000, -- Make sure to load this before all the other start plugins.
-    init = function()
-      -- Other themes: 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'tokyonight-night'
-      vim.cmd.hi 'Comment gui=none'
-    end,
+    priority = 1000,
     config = function()
-      require('tokyonight').setup { transparent = true }
+      require('tokyonight').setup {
+        transparent = true,
+        ---@diagnostic disable-next-line: unused-local
+        on_colors = function(colors)
+          -- Not sure if this would affect more occurances of comments
+          -- colors.comment = '#7F849C'
+        end,
+        on_highlights = function(hl)
+          hl.Comment = { fg = '#7F849C', italic = true }
+          hl['@comment'] = { fg = '#7F849C', italic = true }
+        end,
+      }
+      vim.cmd.colorscheme 'tokyonight-night'
     end,
   },
 }
