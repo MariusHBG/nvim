@@ -1,20 +1,15 @@
 return { -- Highlight, edit, and navigate code
   'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate',
-  main = 'nvim-treesitter.configs', -- Sets main module to use for opts
   event = { 'VeryLazy' },
   -- LazyVim adds the event "LazyFile". I don't know why but consider if having issues
-  dependencies = {
-    'nvim-treesitter/nvim-treesitter-textobjects',
-  },
   config = function()
     if not vim.fn.has 'linux' then
       -- Choose clang for windows as gcc did not work, and default for linux.
       require('nvim-treesitter.install').compilers = { 'clang' }
     end
 
-    require('nvim-treesitter.configs').setup {
-
+    require('nvim-treesitter').setup {
       ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'c_sharp', 'rust' },
       -- Autoinstall languages that are not installed
       auto_install = true,
