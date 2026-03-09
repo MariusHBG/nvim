@@ -236,6 +236,9 @@ return {
 
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
+      -- Trigger install explicitly in case plugin loaded after VimEnter
+      require('mason-tool-installer').check_install(false)
+
       require('mason-lspconfig').setup {
         handlers = {
           function(server_name)
