@@ -18,8 +18,8 @@ return {
       'zbirenbaum/copilot.lua',
     },
     keys = {
-      { '<leader>aa', '<cmd>CodeCompanionActions<cr>', desc = 'CodeCompanion actions' },
-      { '<leader>ac', '<cmd>CodeCompanionChat Toggle<cr>', desc = 'CodeCompanion chat' },
+      { '<leader>aa', '<cmd>CodeCompanionActions<cr>', mode = { 'n', 'v' }, desc = 'CodeCompanion actions' },
+      { '<leader>ac', '<cmd>CodeCompanionChat Toggle<cr>', mode = { 'n', 'v' }, desc = 'CodeCompanion chat' },
       { '<leader>ai', '<cmd>CodeCompanion<cr>', mode = { 'n', 'v' }, desc = 'CodeCompanion inline' },
     },
   },
