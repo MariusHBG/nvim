@@ -8,3 +8,5 @@ vim.diagnostic.config {
     },
   },
 }
+
+vim.opt.termguicolors = true
