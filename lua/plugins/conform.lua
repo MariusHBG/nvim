@@ -48,11 +48,12 @@ return { -- Autoformat
       css = { 'prettierd', 'prettier', stop_after_first = true },
       html = { 'prettierd', 'prettier', stop_after_first = true },
       json = { 'prettierd', 'prettier', stop_after_first = true },
+      markdown = { 'prettierd', 'prettier', stop_after_first = true },
     },
   },
   -- Helper so that the module that handles the mason tool installer setup
   -- can install the required formatters for us
   get_formatters = function()
-    return { 'black', 'stylua' }
+    return { 'black', 'stylua', 'prettierd' }
   end,
 }
