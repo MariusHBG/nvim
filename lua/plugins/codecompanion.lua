@@ -5,7 +5,7 @@ return {
     opts = {
       strategies = {
         chat = {
-          adapter = 'copilot',
+          adapter = 'opencode',
         },
         inline = {
           adapter = 'copilot',
