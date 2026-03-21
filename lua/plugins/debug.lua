@@ -61,6 +61,14 @@ return {
   dependencies = {
     -- Creates a beautiful debugger UI
     'rcarriga/nvim-dap-ui',
+    {
+      'igorlfs/nvim-dap-view',
+      -- let the plugin lazy load itself
+      lazy = false,
+      ---@module 'dap-view'
+      ---@type dapview.Config
+      opts = {},
+    },
 
     -- Required dependency for nvim-dap-ui
     'nvim-neotest/nvim-nio',
@@ -132,11 +140,26 @@ return {
       {
         '<F7>',
         function()
-          require('dapui').toggle()
+          require('dap-view').toggle()
         end,
         desc = 'Debug: See last session result.',
       },
-      -- { '<leader>gb', dap.run_to_cursor },
+      {
+        '<leader>de',
+        function()
+          require('dap-view').add_expr()
+        end,
+        desc = 'Debug: Add expression under cursor',
+        mode = { 'n', 'x' },
+      },
+
+      {
+        '<leader>dc',
+        function()
+          require('dap').run_to_cursor()
+        end,
+        desc = 'Debug: Run to cursor',
+      },
       unpack(keys),
     }
   end,
@@ -159,7 +182,7 @@ return {
       },
     }
 
-    configure_dap_ui()
+    -- configure_dap_ui()
     configure_dap_symbols()
 
     -- Install golang specific config
