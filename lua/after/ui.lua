@@ -10,3 +10,5 @@ vim.diagnostic.config {
 }
 
 vim.opt.termguicolors = true
+
+require('vim._core.ui2').enable()
