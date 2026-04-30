@@ -9,7 +9,25 @@ return { -- Highlight, edit, and navigate code
       -- Choose clang for windows as gcc did not work, and default for linux.
       require('nvim-treesitter.install').compilers = { 'clang' }
     end
-    local parsers = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'c_sharp', 'rust', 'yaml' }
+    local parsers = {
+      'bash',
+      'c',
+      'diff',
+      'html',
+      'javascript',
+      'typescript',
+      'css',
+      'lua',
+      'luadoc',
+      'markdown',
+      'markdown_inline',
+      'query',
+      'vim',
+      'vimdoc',
+      'c_sharp',
+      'rust',
+      'yaml',
+    }
     require('nvim-treesitter').install(parsers)
 
     vim.api.nvim_create_autocmd('FileType', {
