@@ -27,6 +27,7 @@ return { -- Highlight, edit, and navigate code
       'c_sharp',
       'rust',
       'yaml',
+      'python',
     }
     require('nvim-treesitter').install(parsers)
 
