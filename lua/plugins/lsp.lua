@@ -70,7 +70,7 @@ local configure_keymaps = function(ev)
 end
 
 local config = function()
-	local servers = { 'lua_ls', 'rust_analyzer' }
+	local servers = { 'lua_ls' }
 
 	require('mason').setup()
 	-- This will call vim.lsp.enable internally
