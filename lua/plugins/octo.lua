@@ -5,6 +5,12 @@ return {
     picker = 'fzf-lua',
     -- bare Octo command opens picker of commands
     enable_builtin = true,
+    use_local_fs = false,
+    mappings = {
+      review_diff = {
+        toggle_viewed = { lhs = '<localleader>T', desc = 'toggle viewer viewed state' },
+      },
+    },
   },
   keys = {
     {
@@ -27,11 +33,6 @@ return {
       desc = 'Enable local file system',
     },
   },
-  config = function()
-    require('octo').setup {
-      use_local_fs = false,
-    }
-  end,
   dependencies = {
     'nvim-lua/plenary.nvim',
     'ibhagwan/fzf-lua',
