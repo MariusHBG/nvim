@@ -10,6 +10,10 @@ return {
             rustfmt = {
               overrideCommand = { 'cargo', '+nightly', 'fmt', '--all' },
             },
+            check = {
+              command = 'clippy',
+              extraArgs = { '--all-features' },
+            },
           },
         },
       },
