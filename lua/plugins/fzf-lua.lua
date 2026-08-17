@@ -5,6 +5,9 @@ return {
   lazy = true,
   config = function()
     require('fzf-lua').setup {
+      lsp = {
+        async_or_timeout = true,
+      },
       defaults = {
         -- true by default, but list here if I want to disable
         git_icons = true,
