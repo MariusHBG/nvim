@@ -138,5 +138,9 @@ return {
     { '<leader>so', function() require('fzf-lua').oldfiles() end, desc = '[S]earch Recent Files ("." for repeat)' },
 		-- Open buffers
     { '<leader><leader>', function() require('fzf-lua').buffers() end, desc = '[ ] Find existing buffers' },
+		-- Quickfix list
+    { '<leader>sq', function() require('fzf-lua').quickfix() end, desc = '' },
+		-- Quickfix list stack
+    { '<leader>sQ', function() require('fzf-lua').quickfix_stack() end, desc = '' },
   },
 }
