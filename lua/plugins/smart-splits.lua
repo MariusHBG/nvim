@@ -46,8 +46,12 @@ return {
       { '<C-w>sk', mode = { 'n', 'i', 'v' }, function() require('smart-splits').swap_buf_up() end, desc = 'Move window to the top', },
       { '<C-w>sj', mode = { 'n', 'i', 'v' }, function() require('smart-splits').swap_buf_down() end, desc = 'Move window to the bottom', },
     },
-    config = function()
-      require('smart-splits').setup { at_edge = 'stop' }
-    end,
+    dependencies = {
+      { 'smart-splits-nvim/backend-tmux', main = 'smart-splits-backend-tmux' },
+    },
+    opts = {
+      mux = { backend = 'smart-splits-backend-tmux' },
+      move = { at_edge = 'stop' },
+    },
   },
 }
